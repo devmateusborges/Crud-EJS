@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#41414C" />
+    <meta name="Author" content="Mateus Borges ">
+    
+    <title>CRUD</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+</head>
+
+<body id="page-index">
+  <header class="header">
+       <h1>Crud</h1>
+      <br><br>
+       <hr>
+  </header>
+
+ <center>
+     <div class="div_container">
+        <table id="lista">
+     <tr>
+      <th colspan="2"><button  data-target="modal1" class="btn modal-trigger"><i class="material-icons">input</i></button> </th>
+
+         <th colspan="2">Lista de cadastro</th>
+         
+         <th >
+              <input type="text" id="input_busca" placeholder="Digite o codigo para pesquisar">
+         </th>
+
+     </tr>
+      
+     <tr>
+        <th>codigo</th>
+        <th>nome</th>
+        <th>Data de nacimento</th>
+        <th > <span style="color:#143D5A">Ativado (True/ 1)</span> <br> <span style="color:rgb(150, 38, 38)">Desativado (false/ 0)</span> </th>
+     </tr>
+      <% for(let i = 0; i < result.length; i = i + 1 ) { %>
+          <tr id="v<%=  result[i].ID %>"> 
+            <td><%= result[i].jt_codigo %></td>
+            <td><%= result[i].jt_nome %></td>
+            <td><%= result[i].jt_data_nascimento %></td>
+            <td><div class="<% if(result[i].ativo == 1){%> status_A<% }else{%>status_D<%} %>"></div></td>
+            <td> <a class="btn-delete" href="http://localhost:3000/deleteid/<%= result[i].ID %>"><i class="material-icons">delete</i></a>
+              <a class="btn-update" data-target="modal2"  href="/supdate/<%= result[i].ID %>" ><i class="material-icons">edit</i></a> </td>            
+          </tr>
+   <%  } %>
+        </table>    
+     </div>  
+  <!-- Modal cadastro -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Cadastro</h4>
+            <div class="cadastro-container">
+                <form  id="cadastro" action="/cadastro" method="post" >
+                    <input type="text" name="codigo" placeholder="Codigo" required>
+                    <input type="text" name="nome" placeholder="nome" required>
+                    <input type="text" name="date" class="datepicker" placeholder="Data de nacimento" required>
+                    <label>Selecione os status</label>
+                    <select name="ativo" class="browser-default" required>  
+                        <option value="0">Desativado</option>
+                        <option value="1">Ativado</option>
+                    </select>
+        
+                </form>
+            </div>
+    </div>
+    <div class="modal-footer">
+      <button form="cadastro" type="submit" class="btn modal-close waves-effect waves-green btn-flat"><i class="material-icons">send</i></button>
+    </div>
+  </div>
+</center>
+
+ <footer class="page-footeer">
+    <div class="color">
+    ©Bcompany - Borges
+  </div> 
+   <script src="/js/jquery.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <script src="/js/index.js"></script>
+</footer>
+
+</body>
+
+</html>

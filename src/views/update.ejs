@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#41414C" />
+    <meta name="Author" content="Mateus Borges ">
+    
+    <title>CRUD</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/materialize.min.css">
+   
+
+    
+</head>
+
+<body id="page-index">
+ <header class="header">
+       <h1>Crud</h1>
+       <a style="font-size:35pt" href="/"><i class="material-icons">arrow_back</i></a>
+       <hr>
+ </header>
+ <center>
+     <div class="div_container">
+              <h4>Editar</h4>
+              
+              <form  id="editar" action="/update/<%= supdate[0].ID %>" method="post" >
+                <input type="text" name="codigo" value="<%=  supdate[0].jt_codigo %>" placeholder="Codigo" required>
+                <input type="text" name="nome" value="<%= supdate[0].jt_nome%>" placeholder="nome" required>
+                <input type="text" name="date" value="<%= supdate[0].jt_data_nascimento %>" class="datepicker" placeholder="Data de nacimento" required>
+                <label>Selecione os status</label>
+                <select name="ativo" value="<%= supdate[0].ativo %>"class="browser-default" required>  
+                    <option value="0">Desativado</option>
+                    <option value="1">Ativado</option>
+                </select>
+    
+            </form>
+              <button form="editar" type="submit" class="btn modal-close waves-effect waves-green btn-flat"><i class="material-icons">send</i></button>
+         
+     </div>    
+</center>
+
+
+
+ <footer class="page-footeer">
+    <div class="color">
+    ©Bcompany - Borges
+  </div> 
+   <script src="/js/jquery.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <script src="/js/index.js"></script>
+ 
+</footer>
+
+</body>
+
+</html>
