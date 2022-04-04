@@ -1,6 +1,4 @@
-<h1 align="center">
-  <img alt="crud" title="crud" src="" width="220px" />
-</h1>
+<h1 align="center"> Crud EJS</h1>
 
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
